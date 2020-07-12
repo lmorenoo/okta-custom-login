@@ -1,0 +1,20 @@
+:host{
+    ::ng-deep .o-form-fieldset{
+        margin-bottom: 16px;
+        .okta-form-label label{
+            margin-bottom: 1px;
+        }
+        input{
+            border: solid 1px black;
+            border-radius: 4px;    
+        }
+        .custom-checkbox{
+            input{
+                margin-right: 6px;
+            }
+        }
+    }
+    ::ng-deep .o-form-button-bar{
+        margin-bottom: 10px;
+    }
+}
