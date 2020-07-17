@@ -4,7 +4,7 @@ export default {
   oidc: {
     clientId: `${CLIENT_ID}`,
     issuer: `${ISSUER}`,
-    redirectUri: 'https://happiest-food-app.herokuapp.com/implicit/callback',
+    redirectUri: 'http://localhost:4200/implicit/callback',
     pkce: true,
     testing: {
       disableHttpsCheck: `${OKTA_TESTING_DISABLEHTTPSCHECK}`

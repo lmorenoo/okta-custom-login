@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       language: 'es',
       i18n: {
         es: {
-          'primaryauth.title': 'Inicia sesion en Happiest Food',
+          'primaryauth.title': 'Inicia sesion en Code Learn',
         },
       },
       authParams: {
