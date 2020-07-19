@@ -8,12 +8,12 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { AddComponent } from '../../pages/add/add.component';
-import { TablesComponent } from '../../pages/tables/tables.component';
+import { CuestionarioComponent } from '../../pages/cuestionario/cuestionario.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { ToastrModule } from 'ngx-toastr';
+import { CodeLearnComponent } from 'src/app/pages/code-learn/code-learn.component';
+import { AdminCodeLearnComponent } from 'src/app/pages/admin-code-learn/admin-code-learn.component';
+import { ReporteEstudianteComponent } from 'src/app/pages/reporte-estudiante/reporte-estudiante.component';
 
 @NgModule({
   imports: [
@@ -27,10 +27,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    TablesComponent,
-    IconsComponent,
-    MapsComponent,
-    AddComponent
+    CuestionarioComponent,
+    CodeLearnComponent,
+    AdminCodeLearnComponent,
+    ReporteEstudianteComponent,
+    IconsComponent
   ]
 })
 

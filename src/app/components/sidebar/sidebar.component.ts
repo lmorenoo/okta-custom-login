@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
+import { User } from 'src/app/objects/user';
+import { UserService } from 'src/app/user/user-service';
 
 declare interface RouteInfo {
   path: string;
@@ -10,8 +11,10 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
   { path: '/user-profile', title: 'Perfil de usuario', icon: 'ni-single-02 text-yellow', class: '' },
-  { path: '/tables', title: 'Lista de alimentos', icon: 'ni-bullet-list-67 text-red', class: '' },
-  { path: '/add', title: 'Agregar Donación', icon: 'ni-basket text-blue', class: '' },
+  { path: '/cuestionario', title: 'Cuestionario', icon: 'ni-book-bookmark text-blue', class: '' },
+  { path: '/code-learn', title: 'Módulo de Aprendizaje', icon: 'ni-bullet-list-67 text-red', class: '' },
+  { path: '/reporte-estudiante', title: 'Reporte de estudiantes', icon: 'ni-bullet-list-67 text-red', class: '' },
+  { path: '/admin-code-learn', title: 'Administrar estilos de aprendizaje', icon: 'ni-bullet-list-67 text-red', class: '' },
 ];
 
 @Component({
@@ -22,17 +25,24 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
 
   public menuItems: any[];
+  orgName;
+  isStudent = true;
+  user: User;
 
-  constructor(private router: Router, private oktaAuth: OktaAuthService, private ref: ChangeDetectorRef) { }
+  constructor(private oktaAuth: OktaAuthService, private userService: UserService) { }
 
   async ngOnInit() {
-    const user = await this.oktaAuth.getUser();
-    if (user) {
-      const isFundacion = user.roles && user.roles.indexOf('fundacion') !== -1;
-      if (isFundacion) {
-        ROUTES.pop();
+    const oktaUser = await this.oktaAuth.getUser();
+    this.isStudent = !(oktaUser.roles && oktaUser.roles.indexOf('docente') !== -1);
+    if (this.isStudent) {
+      this.orgName = oktaUser.user.name;
+      this.user = await this.userService.getUser(oktaUser.email);
+      ROUTES.splice(3, 2);
+      if (!this.user || !this.user.valoracionTipoAprendizaje) {
+        ROUTES.splice(2);
       }
-      this.ref.detectChanges();
+    } else {
+      this.orgName = `Docente ${oktaUser.user.name}`;
     }
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }

@@ -20,20 +20,22 @@ export class LoginComponent implements OnInit, OnDestroy {
        * we derive it from the given issuer for convenience.
        */
       baseUrl: sampleConfig.oidc.issuer.split('/oauth2')[0],
+      // logo: '../../../assets/img/brand/Escudo_Usta.png',
+      helpSupportNumber: '(123) 456-7890',
+      brandName: 'Santo Tomas',
       clientId: sampleConfig.oidc.clientId,
       redirectUri: sampleConfig.oidc.redirectUri,
       language: 'es',
-      i18n: {
-        es: {
-          'primaryauth.title': 'Inicia sesion en Code Learn',
-        },
-      },
       authParams: {
         pkce: true,
         responseMode: 'query',
         issuer: sampleConfig.oidc.issuer,
         display: 'page'
       },
+      features: {
+        registration: true,
+        showPasswordToggleOnSignInPage: true
+      }
     });
 
   }
@@ -59,6 +61,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       );
     }
   }
+
   ngOnDestroy() {
   }
 

@@ -19,8 +19,9 @@ import {
 import config from './app.config';
 // Okta Guard and Service
 import { OktaAuthGuard } from './app.guard';
-import { DatePipe, LocationStrategy, PathLocationStrategy, HashLocationStrategy } from '@angular/common';
+import { DatePipe, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { UserService } from './user/user-service';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: OKTA_CONFIG, useValue: config.oidc },
     OktaAuthGuard,
+    UserService,
     DatePipe,
   ],
   bootstrap: [AppComponent]

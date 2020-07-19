@@ -22,6 +22,8 @@ const env = {};
 [
   'ISSUER',
   'CLIENT_ID',
+  'OKTA_TESTING_DISABLEHTTPSCHECK',
+  'REDIRECT_URI'
 ].forEach(function (key) {
   console.log(key);
   console.log(process.env[key]);

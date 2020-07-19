@@ -1,0 +1,11 @@
+.dropdown-absolute{
+    position: absolute !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    right: 0;
+}
+
+.dropup, .dropright, .dropdown, .dropleft {
+    position: static;
+}
