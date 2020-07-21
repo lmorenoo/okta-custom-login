@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { CuestionarioComponent } from '../../pages/cuestionario/cuestionario.component';
@@ -25,7 +24,6 @@ import { ReporteEstudianteComponent } from 'src/app/pages/reporte-estudiante/rep
     ClipboardModule
   ],
   declarations: [
-    DashboardComponent,
     UserProfileComponent,
     CuestionarioComponent,
     CodeLearnComponent,
